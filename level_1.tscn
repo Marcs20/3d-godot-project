@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://btavdr2yb8fgt"]
+
+[ext_resource type="PackedScene" uid="uid://b7sx61f1ghch0" path="res://block.tscn" id="1_6w45y"]
+[ext_resource type="PackedScene" uid="uid://byvlhcl8l0ru1" path="res://steve.tscn" id="2_02qgr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_31tb3"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fl6im"]
+size = Vector3(10, 0.5, 10)
+
+[node name="Level1" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.919039, 0.394166, 0, -0.394166, 0.919039, -0.286305, 3.35766, 8.16654)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_31tb3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_fl6im")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.518475, 0.855093, 0, -0.855093, 0.518475, 0, 3.43845, 4.82956)
+shadow_enabled = true
+
+[node name="Steve" parent="." instance=ExtResource("2_02qgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06597, 0)
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("1_6w45y")]
+transform = Transform3D(0.506251, -0.83634, -0.210347, 0.551554, 0.501507, -0.666542, 0.662946, 0.221419, 0.715175, 0.013082, 5.01918, -0.328915)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_6w45y")]
+transform = Transform3D(0.506251, -0.83634, -0.210347, 0.551554, 0.501507, -0.666542, 0.662946, 0.221419, 0.715175, -0.148857, 6.9882, 0.407728)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_6w45y")]
+transform = Transform3D(0.506251, -0.83634, -0.210347, 0.551554, 0.501507, -0.666542, 0.662946, 0.221419, 0.715175, 0.216066, 7.19009, -0.904543)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_6w45y")]
+transform = Transform3D(0.506251, -0.83634, -0.210347, 0.551554, 0.501507, -0.666542, 0.662946, 0.221419, 0.715175, -0.0802897, 9.67482, 0.359696)
